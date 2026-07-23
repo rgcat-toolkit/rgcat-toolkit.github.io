@@ -1,0 +1,12 @@
+---
+layout: null
+---
+{% if site.noindex_site %}
+User-agent: *
+Disallow: /
+{% else %}
+User-agent: *
+Allow: /
+
+Sitemap: {{ site.canonical_origin | default: site.url }}{{ site.baseurl }}/sitemap.xml
+{% endif %}

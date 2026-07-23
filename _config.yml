@@ -1,0 +1,56 @@
+locale: "en_US"
+lang: "en"
+title: "RGCAT"
+description: "A reproducible Python toolkit for cluster-based geometry coverage analysis, gap identification, and analytical method comparison in Roboforming process data."
+url: "https://rgcat-toolkit.github.io"
+canonical_origin: "https://rgcat-toolkit.github.io"
+baseurl: ""
+repository: "rgcat-toolkit/rgcat-toolkit.github.io"
+timezone: Europe/Berlin
+logo: "/assets/images/brand/rgcat-logo.webp"
+og_image: "/assets/images/social/og-image.webp"
+noindex_site: false
+
+include:
+  - _pages
+
+exclude:
+  - briefing
+  - Briefing
+  - _site
+  - .jekyll-cache
+  - .sass-cache
+  - .bundle
+  - .tmp-validation
+  - vendor
+  - node_modules
+  - Gemfile
+  - Gemfile.lock
+  - docker-compose.yml
+  - README.md
+  - PRODUCT.md
+  - DESIGN.md
+  - .agents
+  - .impeccable
+
+markdown: kramdown
+highlighter: rouge
+
+kramdown:
+  input: GFM
+  hard_wrap: false
+
+sass:
+  sass_dir: _sass
+  style: compressed
+
+plugins:
+  - jekyll-sitemap
+  - jekyll-feed
+  - jekyll-include-cache
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: "default"

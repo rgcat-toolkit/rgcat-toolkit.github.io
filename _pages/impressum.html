@@ -1,0 +1,61 @@
+---
+title: "Impressum"
+seo_title: "Impressum | RGCAT"
+description: "Anbieterkennzeichnung und rechtliche Hinweise für rgcat-toolkit.github.io."
+permalink: /impressum/
+body_class: "legal-page"
+---
+{% assign legal = site.data.site.legal %}
+{% assign disclosure = site.data.site.ai_disclosure %}
+{% assign release = site.data.site.release %}
+
+<section class="page-hero">
+  <div class="shell shell--narrow" data-reveal>
+    <p class="eyebrow"><span aria-hidden="true"></span>Rechtliches</p>
+    <h1>Impressum</h1>
+    <p>Anbieterkennzeichnung und rechtliche Hinweise für {{ legal.site_url | replace: 'https://', '' }}.</p>
+    <p class="legal-note">This legal page is included in German due to German privacy laws. Contact me if you have questions.</p>
+  </div>
+</section>
+
+<article class="legal-content shell shell--narrow">
+  <section id="anbieter">
+    <h2>Anbieter</h2>
+    <p><strong>{{ legal.operator_name }}</strong><br>{{ legal.address_line_1 }}<br>{{ legal.postal_city }}<br>{{ legal.country }}</p>
+  </section>
+
+  <section id="kontakt">
+    <h2>Kontakt</h2>
+    <p>E-Mail: <a href="mailto:{{ legal.email }}">{{ legal.display_email }}</a><br>Telefon: <a href="tel:{{ legal.phone | replace: ' ', '' }}">{{ legal.phone }}</a><br>Websites: <a href="{{ legal.website }}" target="_blank" rel="noopener noreferrer">{{ legal.website | replace: 'https://', '' }}</a>, <a href="{{ legal.developer_url }}" target="_blank" rel="noopener noreferrer">{{ legal.developer_url | replace: 'https://', '' | replace: '/', '' }}</a></p>
+  </section>
+
+  <section id="verantwortung">
+    <h2>Verantwortung für Inhalte</h2>
+    <p>Die Inhalte dieses Webauftritts wurden mit Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der bereitgestellten Informationen wird jedoch keine Gewähr übernommen.</p>
+  </section>
+
+  <section id="links">
+    <h2>Externe Links</h2>
+    <p>Diese Website enthält Links zu externen Webseiten Dritter, insbesondere zu GitHub. Auf deren Inhalte besteht kein Einfluss. Für Inhalte verlinkter Seiten sind ausschliesslich deren jeweilige Anbieter oder Betreiber verantwortlich. Werden Rechtsverletzungen bekannt, werden entsprechende Links zeitnah entfernt.</p>
+  </section>
+
+  <section id="urheberrecht">
+    <h2>Urheberrecht</h2>
+    {% if release.repository_public %}
+      <p>Die durch den Anbieter erstellten Inhalte, Texte, Grafiken und sonstigen Werke auf dieser Website unterliegen dem Urheberrecht. Soweit Inhalte aus dem RGCAT-Projekt verwendet werden, gelten die jeweiligen Lizenzbedingungen des Projekts. Jede Nutzung ausserhalb der gesetzlichen Schranken oder der eingeräumten Lizenzrechte bedarf der vorherigen Zustimmung der jeweiligen Rechteinhaber.</p>
+    {% else %}
+      <p>Die durch den Anbieter erstellten Inhalte, Texte, Grafiken und sonstigen Werke auf dieser Website unterliegen dem Urheberrecht. Das RGCAT-Projekt ist noch nicht öffentlich freigegeben; die Veröffentlichung des Quellcodes unter der MIT-Lizenz ist für eine spätere öffentliche Version vorgesehen. Bis dahin bedarf jede Nutzung ausserhalb der gesetzlichen Schranken der vorherigen Zustimmung der jeweiligen Rechteinhaber.</p>
+    {% endif %}
+  </section>
+
+  <section id="ki-bildhinweis">
+    <h2>Hinweis zu visuellen Inhalten</h2>
+    <p>{{ disclosure.imprint_de }}</p>
+  </section>
+
+  <section id="datenschutz">
+    <h2>Datenschutz</h2>
+    <p>Weitere Informationen zur Verarbeitung personenbezogener Daten finden sich in der <a href="{{ '/datenschutz/' | relative_url }}">Datenschutzerklärung</a>.</p>
+    <p>Letzte Aktualisierung: {{ legal.last_updated }}</p>
+  </section>
+</article>

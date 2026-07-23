@@ -1,0 +1,66 @@
+{% assign meta = site.data.site %}
+{% assign release = meta.release %}
+{% if page.seo_title %}
+  {% assign page_title = page.seo_title %}
+{% elsif page.title and page.title != site.title %}
+  {% assign page_title = page.title | append: " | " | append: site.title %}
+{% else %}
+  {% assign page_title = site.title %}
+{% endif %}
+{% assign meta_description = page.description | default: site.description %}
+{% assign site_origin = site.canonical_origin | default: site.url | append: site.baseurl %}
+{% assign canonical_url = site_origin | append: page.url | replace:'index.html','' %}
+{% assign og_image = page.og_image | default: site.og_image %}
+{% assign og_image_url = site_origin | append: og_image %}
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ page_title }}</title>
+<meta name="description" content="{{ meta_description }}">
+{% if site.noindex_site %}<meta name="robots" content="noindex, nofollow">{% endif %}
+<link rel="canonical" href="{{ canonical_url }}">
+<link rel="icon" href="{{ '/favicon.png' | relative_url }}" type="image/png">
+<link rel="apple-touch-icon" href="{{ '/favicon.png' | relative_url }}">
+<meta name="theme-color" content="#f7f8f5">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="{{ site.locale }}">
+<meta property="og:site_name" content="{{ site.title }}">
+<meta property="og:title" content="{{ page_title }}">
+<meta property="og:description" content="{{ meta_description }}">
+<meta property="og:url" content="{{ canonical_url }}">
+<meta property="og:image" content="{{ og_image_url }}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ page_title }}">
+<meta name="twitter:description" content="{{ meta_description }}">
+<meta name="twitter:image" content="{{ og_image_url }}">
+<link rel="preload" href="{{ '/assets/fonts/archivo-latin.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="{{ '/assets/fonts/source-sans-3-latin.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
+{% if page.body_class == 'home-page' %}
+  <link
+    rel="preload"
+    as="image"
+    href="{{ '/assets/images/hero-rgcat-laptop-720.webp' | relative_url }}"
+    imagesrcset="{{ '/assets/images/hero-rgcat-laptop-720.webp' | relative_url }} 720w, {{ '/assets/images/hero-rgcat-laptop-1080.webp' | relative_url }} 1080w, {{ '/assets/images/hero-rgcat-laptop-1280.webp' | relative_url }} 1280w, {{ '/assets/images/hero-rgcat-laptop.webp' | relative_url }} 1448w"
+    imagesizes="(max-width: 560px) calc(100vw - 1.25rem), (max-width: 1080px) calc(100vw - 2rem), 56vw"
+    type="image/webp"
+    fetchpriority="high">
+{% endif %}
+<script>document.documentElement.classList.add('has-js');</script>
+<link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareSourceCode",
+  "name": "RGCAT",
+  "description": {{ site.description | jsonify }},
+  "programmingLanguage": "Python",
+  "url": {{ site_origin | jsonify }},
+  {% if release.repository_public %}
+  "codeRepository": {{ meta.github_url | jsonify }},
+  "license": {{ meta.docs.official_license | jsonify }},
+  {% endif %}
+  "author": {
+    "@type": "Person",
+    "name": "Per Starke"
+  }
+}
+</script>

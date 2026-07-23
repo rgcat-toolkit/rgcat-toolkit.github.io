@@ -1,0 +1,25 @@
+main:
+  - label: "Overview"
+    url: "#overview"
+  - label: "Pipeline"
+    url: "#pipeline"
+  - label: "Outputs"
+    url: "#outputs"
+  - label: "Docs"
+    url: "#docs"
+  - label: "License"
+    url: "#license"
+
+footer:
+  - label: "MIT License"
+    url: "https://opensource.org/license/mit"
+  - label: "Imprint"
+    url: "/impressum/"
+  - label: "Privacy"
+    url: "/datenschutz/"
+
+footer_preview:
+  - label: "Imprint"
+    url: "/impressum/"
+  - label: "Privacy"
+    url: "/datenschutz/"

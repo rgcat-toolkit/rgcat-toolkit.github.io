@@ -1,0 +1,40 @@
+{% assign meta = site.data.site %}
+{% assign release = meta.release %}
+{% assign nav = site.data.navigation.main %}
+<header class="site-header" data-site-header>
+  <div class="shell site-header__inner">
+    <a class="site-header__brand" href="{{ '/' | relative_url }}" aria-label="RGCAT home">
+      <img src="{{ '/assets/images/brand/rgcat-logo-168.webp' | relative_url }}" alt="" width="168" height="168" decoding="async">
+    </a>
+
+    <button class="site-header__toggle" type="button" aria-expanded="false" aria-controls="site-navigation" aria-label="Open navigation" data-nav-toggle>
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav class="site-header__nav" id="site-navigation" aria-label="Main navigation" data-nav-panel>
+      <ul class="site-header__menu">
+        {% for item in nav %}
+          <li>
+            {% if item.url contains '://' %}
+              <a href="{{ item.url }}" target="_blank" rel="noopener noreferrer">{{ item.label }}</a>
+            {% else %}
+              <a href="{{ item.url | relative_url }}">{{ item.label }}</a>
+            {% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+      {% if release.repository_public %}
+        <a class="button button--primary button--small" href="{{ meta.github_url }}" target="_blank" rel="noopener noreferrer">
+          <span class="button__icon" aria-hidden="true">{% include icon.html name="github" %}</span>
+          View on GitHub
+        </a>
+      {% else %}
+        <a class="button button--primary button--small" href="{{ '/' | relative_url }}#release-status">
+          Release status
+        </a>
+      {% endif %}
+    </nav>
+  </div>
+</header>

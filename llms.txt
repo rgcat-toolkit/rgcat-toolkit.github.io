@@ -1,0 +1,20 @@
+---
+layout: null
+permalink: /llms.txt
+sitemap: false
+---
+# RGCAT
+
+> RGCAT is a reproducible Python toolkit for cluster-based geometry coverage analysis, gap identification, and analytical method comparison in Roboforming process data.
+
+This site currently presents the project’s methods and example outputs. Source code, installation instructions, and detailed documentation will be linked when the repository is released publicly.
+
+## Project
+
+- [RGCAT overview]({{ site.canonical_origin }}/): Project purpose, pipeline, example outputs, release status, documentation scope, and licensing information.
+- [MIT License information]({{ site.data.site.docs.official_license }}): The official Open Source Initiative page for the MIT License.
+
+## Legal
+
+- [Imprint]({{ site.canonical_origin }}/impressum/): Site operator and legal information.
+- [Privacy]({{ site.canonical_origin }}/datenschutz/): Information about data processing for this website.

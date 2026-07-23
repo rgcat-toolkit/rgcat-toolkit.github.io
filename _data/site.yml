@@ -1,0 +1,104 @@
+github_url: ""
+release:
+  repository_public: false
+  availability_note: "This website previews RGCAT’s methods and outputs. Source code, documentation, and installation instructions will be published with a later public release."
+  planned_items:
+    - "Python source code"
+    - "Docker and Conda environments"
+    - "Usage and configuration guides"
+    - "Pipeline walkthrough"
+    - "Architecture documentation and ADRs"
+    - "MIT license"
+
+docs:
+  readme: ""
+  usage: ""
+  configuration: ""
+  walkthrough: ""
+  architecture: ""
+  adrs: ""
+  license: ""
+  official_license: "https://opensource.org/license/mit"
+
+documentation_items:
+  - label: "README"
+    key: "readme"
+  - label: "Usage Guide"
+    key: "usage"
+  - label: "Configuration Reference"
+    key: "configuration"
+  - label: "Pipeline Walkthrough"
+    key: "walkthrough"
+  - label: "arc42-based Architecture Docs"
+    key: "architecture"
+  - label: "Architecture Decision Records"
+    key: "adrs"
+
+ai_disclosure:
+  footer: "Some visuals on this site were created using generative AI tools and post-edited by the author."
+  imprint_de: "Einige visuelle Inhalte auf dieser Website wurden mithilfe generativer KI erstellt und vom Autor nachbearbeitet. Analytische Diagramme und Ergebnisdarstellungen basieren auf Ausgaben des RGCAT-Projekts, sofern nicht anders gekennzeichnet."
+
+legal:
+  operator_name: "Per Starke"
+  business_name: "Per Starke"
+  address_line_1: "Willi-Lauf Allee 43"
+  postal_city: "D-50858 Köln"
+  country: "Deutschland"
+  email: "per.starke@kroener-starke.ch"
+  display_email: "per.starke@kroener-starke.ch"
+  phone: "+49 160 93268817"
+  website: "https://perstarke-webdev.de"
+  site_url: "https://rgcat-toolkit.github.io"
+  last_updated: "23. Juli 2026"
+  developer_label: "Made by: KSWD"
+  developer_url: "https://kroener-starke.ch/"
+
+pipeline:
+  - title: "Data Ingestion"
+    text: "CSV, Parquet, Feather"
+  - title: "Feature Expansion"
+    text: "flat vectors, z-map features, context columns"
+  - title: "Representation"
+    text: "PCA, VAE, VaDE"
+  - title: "Clustering"
+    text: "KMeans, HDBSCAN, combo"
+  - title: "Coverage Metrics"
+    text: "kNN coverage, sparse-region metrics"
+  - title: "Gap Detection"
+    text: "candidate sampling, ranking"
+  - title: "Reconstruction"
+    text: "candidate features, original space"
+  - title: "Extension Evaluation"
+    text: "analytical before/after metrics"
+  - title: "Run Outputs"
+    text: "metrics, plots, report, config snapshot"
+
+outputs:
+  - title: "Coverage Map"
+    image: "/assets/images/outputs/coverage-map.webp"
+    image_small: "/assets/images/outputs/coverage-map-640.webp"
+    image_width: 1000
+    image_height: 795
+    alt: "RGCAT kNN coverage map scatter plot"
+    text: "k-nearest-neighbor distances highlight sparse regions in the embedding."
+  - title: "Gap Candidate Plot"
+    image: "/assets/images/outputs/gap-candidates.webp"
+    image_small: "/assets/images/outputs/gap-candidates-640.webp"
+    image_width: 1000
+    image_height: 800
+    alt: "RGCAT embedding gap candidates plot"
+    text: "Analytical gap candidates shown against existing embedding samples."
+  - title: "Reconstructed TCP Z-map"
+    image: "/assets/images/outputs/reconstructed-zmap.webp"
+    image_small: "/assets/images/outputs/reconstructed-zmap-640.webp"
+    image_width: 1200
+    image_height: 556
+    alt: "RGCAT reconstructed TCP z-map candidate heatmap and 3D surface"
+    text: "One analytical candidate reconstructed as heatmap and 3D surface."
+  - title: "VAE Reconstruction Loss"
+    image: "/assets/images/outputs/vae-reconstruction-loss.webp"
+    image_small: "/assets/images/outputs/vae-reconstruction-loss-640.webp"
+    image_width: 1000
+    image_height: 530
+    alt: "RGCAT VAE reconstruction loss plot"
+    text: "Training and validation loss for a VAE representation run."
