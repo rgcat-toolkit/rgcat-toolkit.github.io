@@ -583,13 +583,8 @@ p {
   margin-bottom: var(--space-xl);
 }
 
-.section__head > p:not(.eyebrow) {
-  margin-top: var(--space-sm);
-  color: var(--color-ink-soft);
-  font-size: 1.16rem;
-}
-
-.section__head--split > div > p:not(.eyebrow) {
+.section__head > p:not(.eyebrow),
+.section__head > div > p:not(.eyebrow) {
   margin-top: var(--space-sm);
   color: var(--color-ink-soft);
   font-size: 1.16rem;
