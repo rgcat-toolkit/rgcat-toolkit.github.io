@@ -1,0 +1,176 @@
+{% unless page.body_class == 'not-found-page' %}
+  {% assign schema = meta.schema %}
+  {% assign page_language = page.lang | default: site.lang | default: 'en' %}
+  {% assign homepage = false %}
+  {% if page.body_class == 'home-page' %}
+    {% assign homepage = true %}
+  {% endif %}
+  {% assign website_id = site_origin | append: '/#website' | replace: '//', '/' | replace: 'https:/', 'https://' %}
+  {% assign webpage_id = canonical_url | append: '#webpage' %}
+  {% assign author_id = site_origin | append: '/#person-per-starke' | replace: '//', '/' | replace: 'https:/', 'https://' %}
+  {% assign software_id = site_origin | append: '/#software' | replace: '//', '/' | replace: 'https:/', 'https://' %}
+  {% assign project_id = site_origin | append: '/#research-project' | replace: '//', '/' | replace: 'https:/', 'https://' %}
+  {% assign supervisor_id = site_origin | append: '/#person-jan-schaefer' | replace: '//', '/' | replace: 'https:/', 'https://' %}
+  {% assign hero_image_url = site_origin | append: '/assets/images/hero-rgcat-laptop.webp' %}
+  {% assign hero_image_small_url = site_origin | append: '/assets/images/hero-rgcat-laptop-720.webp' %}
+  {% assign hero_image_id = hero_image_url | append: '#primaryimage' %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": {{ website_id | jsonify }},
+      "url": {{ site_origin | append: '/' | jsonify }},
+      "name": {{ site.title | jsonify }},
+      "description": {{ site.description | jsonify }},
+      "inLanguage": {{ site.lang | default: 'en' | jsonify }},
+      "publisher": {
+        "@id": {{ author_id | jsonify }}
+      },
+      "copyrightHolder": {
+        "@id": {{ author_id | jsonify }}
+      },
+      "copyrightYear": {{ schema.copyright_year | jsonify }},
+      "image": {{ og_image_url | jsonify }}
+    },
+    {
+      "@type": "Person",
+      "@id": {{ author_id | jsonify }},
+      "name": {{ meta.legal.operator_name | jsonify }},
+      "url": {{ meta.legal.website | jsonify }}
+    },
+    {
+      "@type": "WebPage",
+      "@id": {{ webpage_id | jsonify }},
+      "url": {{ canonical_url | jsonify }},
+      "name": {{ page_title | jsonify }},
+      "description": {{ meta_description | jsonify }},
+      "inLanguage": {{ page_language | jsonify }},
+      "isPartOf": {
+        "@id": {{ website_id | jsonify }}
+      },
+      "about": {
+        "@id": {% if homepage %}{{ project_id | jsonify }}{% else %}{{ website_id | jsonify }}{% endif %}
+      },
+      "copyrightHolder": {
+        "@id": {{ author_id | jsonify }}
+      }{% if homepage %},
+      "mainEntity": {
+        "@id": {{ software_id | jsonify }}
+      },
+      "primaryImageOfPage": {
+        "@id": {{ hero_image_id | jsonify }}
+      }{% endif %}
+    }{% if homepage %},
+    {
+      "@type": "ImageObject",
+      "@id": {{ hero_image_id | jsonify }},
+      "url": {{ hero_image_url | jsonify }},
+      "contentUrl": {{ hero_image_url | jsonify }},
+      "thumbnailUrl": {{ hero_image_small_url | jsonify }},
+      "encodingFormat": "image/webp",
+      "width": 1448,
+      "height": 1086,
+      "caption": "Laptop showing an RGCAT analytics dashboard with run metrics, gap candidates, and reconstructed geometry plots",
+      "representativeOfPage": true,
+      "copyrightHolder": {
+        "@id": {{ author_id | jsonify }}
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": {{ supervisor_id | jsonify }},
+      "name": {{ schema.supervisor_name | jsonify }}
+    },
+    {
+      "@type": "ResearchProject",
+      "@id": {{ project_id | jsonify }},
+      "url": {{ site_origin | append: '/' | jsonify }},
+      "name": {{ schema.project_name | jsonify }},
+      "alternateName": "Roboforming Geometric Coverage Analysis Toolkit research project",
+      "description": {{ schema.project_description | jsonify }},
+      "image": {
+        "@id": {{ hero_image_id | jsonify }}
+      },
+      "keywords": [
+        {% for keyword in schema.keywords %}
+          {{ keyword | jsonify }}{% unless forloop.last %},{% endunless %}
+        {% endfor %}
+      ],
+      "member": [
+        {
+          "@type": "OrganizationRole",
+          "roleName": "Developer and master’s thesis author",
+          "member": {
+            "@id": {{ author_id | jsonify }}
+          }
+        },
+        {
+          "@type": "OrganizationRole",
+          "roleName": "Supervisor",
+          "member": {
+            "@id": {{ supervisor_id | jsonify }}
+          }
+        }
+      ],
+      "subjectOf": [
+        {
+          "@id": {{ webpage_id | jsonify }}
+        },
+        {
+          "@id": {{ software_id | jsonify }}
+        }
+      ]
+    },
+    {
+      "@type": "SoftwareSourceCode",
+      "@id": {{ software_id | jsonify }},
+      "url": {{ site_origin | append: '/' | jsonify }},
+      "name": "RGCAT",
+      "alternateName": "Roboforming Geometric Coverage Analysis Toolkit",
+      "description": {{ site.description | jsonify }},
+      "abstract": {{ schema.software_abstract | jsonify }},
+      "mainEntityOfPage": {
+        "@id": {{ webpage_id | jsonify }}
+      },
+      "image": {
+        "@id": {{ hero_image_id | jsonify }}
+      },
+      "author": {
+        "@id": {{ author_id | jsonify }}
+      },
+      "creator": {
+        "@id": {{ author_id | jsonify }}
+      },
+      "maintainer": {
+        "@id": {{ author_id | jsonify }}
+      },
+      "copyrightHolder": {
+        "@id": {{ author_id | jsonify }}
+      },
+      "copyrightYear": {{ schema.copyright_year | jsonify }},
+      "programmingLanguage": {
+        "@type": "ComputerLanguage",
+        "name": "Python"
+      },
+      "runtimePlatform": [
+        {% for platform in schema.runtime_platforms %}
+          {{ platform | jsonify }}{% unless forloop.last %},{% endunless %}
+        {% endfor %}
+      ],
+      "license": {{ meta.docs.official_license | jsonify }},
+      "creativeWorkStatus": {{ schema.software_status | jsonify }},
+      "conditionsOfAccess": {{ release.availability_note | jsonify }},
+      "keywords": [
+        {% for keyword in schema.keywords %}
+          {{ keyword | jsonify }}{% unless forloop.last %},{% endunless %}
+        {% endfor %}
+      ]{% if release.repository_public %},
+      "codeRepository": {{ meta.github_url | jsonify }}{% endif %}
+    }
+    {% endif %}
+  ]
+}
+</script>
+{% endunless %}

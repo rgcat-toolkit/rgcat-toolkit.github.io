@@ -46,21 +46,4 @@
 {% endif %}
 <script>document.documentElement.classList.add('has-js');</script>
 <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "SoftwareSourceCode",
-  "name": "RGCAT",
-  "description": {{ site.description | jsonify }},
-  "programmingLanguage": "Python",
-  "url": {{ site_origin | jsonify }},
-  {% if release.repository_public %}
-  "codeRepository": {{ meta.github_url | jsonify }},
-  "license": {{ meta.docs.official_license | jsonify }},
-  {% endif %}
-  "author": {
-    "@type": "Person",
-    "name": "Per Starke"
-  }
-}
-</script>
+{% include schema.html %}

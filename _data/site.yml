@@ -20,6 +20,30 @@ docs:
   license: ""
   official_license: "https://opensource.org/license/mit"
 
+schema:
+  project_name: "RGCAT master’s research project"
+  project_description: "A master’s thesis research project developing RGCAT for reproducible geometry coverage analysis, clustering, gap identification, and analytical method comparison in Roboforming process data."
+  software_abstract: "RGCAT transforms tabular Roboforming geometry data into reduced representations, clusters, coverage metrics, analytical gap candidates, reconstructed candidate features, and reproducible run artifacts."
+  software_status: "Pre-release"
+  copyright_year: 2026
+  supervisor_name: "Jan Schäfer"
+  keywords:
+    - "Roboforming"
+    - "research software"
+    - "geometry coverage analysis"
+    - "clustering"
+    - "gap detection"
+    - "PCA"
+    - "VAE"
+    - "VaDE"
+    - "KMeans"
+    - "HDBSCAN"
+    - "reproducible analysis"
+  runtime_platforms:
+    - "Python"
+    - "Docker"
+    - "Conda"
+
 documentation_items:
   - label: "README"
     key: "readme"
