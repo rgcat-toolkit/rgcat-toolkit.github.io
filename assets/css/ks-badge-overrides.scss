@@ -1,0 +1,13 @@
+---
+---
+/* Approved exception: retain RGCAT's existing orbit movement color. */
+.site-footer__badge-orbit-trace {
+  stroke: oklch(53% 0.235 298 / 0.92);
+  filter: drop-shadow(0 0 1px oklch(53% 0.235 298 / 0.64));
+}
+
+@media (min-width: 861px) {
+  .site-footer__badge {
+    justify-self: end;
+  }
+}

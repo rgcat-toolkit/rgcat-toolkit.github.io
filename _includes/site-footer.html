@@ -35,15 +35,7 @@
           {% endfor %}
         </nav>
       </div>
-      <a class="site-footer__badge" href="{{ legal.developer_url }}" target="_blank" rel="noopener noreferrer" aria-label="{{ legal.developer_label }} zur Website">
-        <svg class="site-footer__badge-orbit" viewBox="0 0 100 32" preserveAspectRatio="none" aria-hidden="true" focusable="false" data-badge-orbit>
-          <path class="site-footer__badge-orbit-fill" d="M 50 1 H 93 Q 99 1 99 7 V 25 Q 99 31 93 31 H 7 Q 1 31 1 25 V 7 Q 1 1 7 1 H 50" />
-          <path class="site-footer__badge-orbit-rail" d="M 50 1 H 93 Q 99 1 99 7 V 25 Q 99 31 93 31 H 7 Q 1 31 1 25 V 7 Q 1 1 7 1 H 50" pathLength="100" />
-          <path class="site-footer__badge-orbit-trace site-footer__badge-orbit-trace--a" />
-          <path class="site-footer__badge-orbit-trace site-footer__badge-orbit-trace--b" />
-        </svg>
-        <span class="site-footer__badge-core">Made by: <strong>K&amp;S</strong></span>
-      </a>
+      {% include ks-badge.html %}
     </div>
   </div>
 </footer>
